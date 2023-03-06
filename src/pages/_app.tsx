@@ -1,6 +1,6 @@
 // pages/_app.tsx
 
-import Layout from "@/components/layout";
+import "bootstrap/dist/css/bootstrap.css";
 import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import type { ReactElement, ReactNode } from "react";
@@ -15,7 +15,5 @@ type AppPropsWithLayout = AppProps & {
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>);
-
   return <Component {...pageProps} />;
 }

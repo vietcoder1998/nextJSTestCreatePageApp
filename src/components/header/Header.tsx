@@ -21,7 +21,11 @@ interface HeaderItem {
 
 export default function Header() {
   return (
+<<<<<<< HEAD
     <header className={['grid', styles.header].join(' ')}>
+=======
+    <div className={['grid', styles.header].join(' ')}>
+>>>>>>> Initial commit from Create Next App
       <div className='col4'>
         <Image
           src="/images/logo-supper.svg"
@@ -37,6 +41,10 @@ export default function Header() {
           ))}
         </div>
       </div>
+<<<<<<< HEAD
     </header>
+=======
+    </div>
+>>>>>>> Initial commit from Create Next App
   );
 }
