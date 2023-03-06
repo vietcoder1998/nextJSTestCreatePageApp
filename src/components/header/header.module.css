@@ -1,0 +1,20 @@
+.header {
+  width: auto;
+  text-align: right;
+  margin-bottom: 100px;
+}
+
+.menuItem {
+  padding: 5px 24px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+  text-decoration: none;
+}
+
+.headerMenu {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
