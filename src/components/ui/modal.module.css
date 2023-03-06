@@ -1,0 +1,64 @@
+.show {
+  display: block;
+}
+
+.fade {
+  display: none;
+}
+
+.modalCustom {
+  position: fixed;
+  background-color: #11111130;
+  width: 100%;
+  height: 100%;
+  padding: 20%;
+  top: 0;
+  left: 0;
+}
+
+.modalDialog {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.modalHeader {
+  display: flex;
+  position: relative;
+  padding: 15px;
+  border-bottom: solid whitesmoke 1px;
+}
+
+.buttonClose {
+  position: absolute;
+  right: 10px;
+  background-color: #ffffff00;
+  border: none;
+}
+
+.buttonClose span {
+  width: 30px;
+  height: 30px;
+}
+.modalFooter {
+  display: flex;
+  padding: 15px;
+  border-top: solid whitesmoke 1px;
+  justify-content: right;
+}
+
+.modalFooter button{
+  background-color: #ffffff00;
+  border: none;
+  font-weight: 500;
+  padding:  5px 10px;
+  font-size: 14px;
+}
+
+.modalFooter .confirm {
+  background-color: yellow!important;
+  border-radius: 10px;
+}
+
+.inputContent {
+  margin-right: 20px;
+}
