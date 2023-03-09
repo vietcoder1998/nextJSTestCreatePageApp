@@ -18,3 +18,8 @@
   display: flex;
   justify-content: right;
 }
+
+.logoContainer {
+  display: flex;
+  justify-content: left;
+}

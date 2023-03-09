@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 >>>>>>> Initial commit from Create Next App
 import styles from "./page.module.css";
+import moment from 'moment'
 
 interface Tag {
   label: string;
@@ -101,7 +102,12 @@ export default function Home() {
     tags: ["Product", "Design"],
 =======
     tags: [],
+<<<<<<< HEAD
 >>>>>>> Initial commit from Create Next App
+=======
+    date: '',
+    time: '',
+>>>>>>> fix: time-machine
   };
 
   const onCloseImageBanner = () => {
@@ -148,7 +154,19 @@ export default function Home() {
           console.log();
 =======
           const { values, actions } = event;
+<<<<<<< HEAD
 >>>>>>> Initial commit from Create Next App
+=======
+          const { time, date }= values
+          const timeStamp = new Date(date)
+          const dd = date.getTime()
+          const mm = date.getDay()
+          const yy = date.getYear()
+          const hh = values.time
+
+          const startAt = moment("HH dd/mm/yy",`${hh} ${dd}/${mm}/${yy}`)
+
+>>>>>>> fix: time-machine
           fetch("https://api.supermomos-dev.com/interview/social", {
             method: "POST",
             headers: {
@@ -164,6 +182,7 @@ export default function Home() {
             },
             body: JSON.stringify({
               values,
+              startAt,
               tags: tagList.map((item) => item.value),
             }),
           })
@@ -248,8 +267,9 @@ export default function Home() {
                         <input
                           type="text"
                           className="form-control"
-                          id="date"
+                          id="time"
                           placeholder="Time"
+<<<<<<< HEAD
 <<<<<<< HEAD
                           name="time"
                           data-provide="datepicker"
@@ -257,13 +277,16 @@ export default function Home() {
                       </div>
 =======
                           name="time-machinnne"
+=======
+                          name="time"
+>>>>>>> fix: time-machine
                           data-provide="datepicker"
                           list="time"
                         />
                       </div>
                       <datalist id="time">
                         {[
-                          1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 7,
+                           1, 2, 3, 4, 5, 7,6,  8, 9, 10, 12, 0, 1, 2, 3, 4, 5, 6, 7,
                           8, 9, 10, 11, 12,
                         ].map((item, index) => (
                           <option key={item} value={index}>
