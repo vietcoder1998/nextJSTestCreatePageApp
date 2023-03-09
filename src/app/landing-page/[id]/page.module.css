@@ -3,12 +3,6 @@
   width: 556px;
   z-index: 999;
 }
-<<<<<<< HEAD
-.formHeader {
-  padding: 9px;
-  gap: 10px;
-  word-wrap: break-word;
-=======
 
 .formHeaderContainer{
   word-wrap: break-word;
@@ -20,7 +14,6 @@
 .formHeader {
   padding: 9px;
   gap: 10px;
->>>>>>> Initial commit from Create Next App
   /* Purple */
   line-break: auto;
   margin-bottom: 30px;
@@ -38,10 +31,7 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 60px;
-<<<<<<< HEAD
-=======
   min-width: 566px;
->>>>>>> Initial commit from Create Next App
   /* identical to box height, or 125% */
 
   color: #ffffff;

@@ -1,28 +1,13 @@
 "use client";
 
 import Modal from "@/components/ui/Modal";
-<<<<<<< HEAD
-import { CreatePageBody } from "@/interface/index";
-import {
-  Formik,
-  FormikHelpers,
-  FormikProps,
-  Form,
-  Field,
-  FieldProps,
-} from "formik";
-import Image from "next/image";
-import React from "react";
-import { BannerLink } from "@/config/const";
-=======
 import { BannerLink } from "@/config/const";
 import { Formik } from "formik";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React from "react";
->>>>>>> Initial commit from Create Next App
 import styles from "./page.module.css";
-import moment from 'moment'
+import moment from "moment";
 
 interface Tag {
   label: string;
@@ -40,28 +25,17 @@ const defaultTagList: Tag[] = [
   { label: "Design", value: "design" },
 ];
 
-<<<<<<< HEAD
-let tagList: Tag[] = [{ label: "Engineering", value: "engineering" }];
-export default function Home() {
-  const [showModal, setShowModal] = React.useState(false);
-  const [imgLink, setImgLink] = React.useState<string>("");
-=======
 export default function Home() {
   const [showModal, setShowModal] = React.useState(false);
   const [imgLink, setImgLink] = React.useState<string>("");
   const [tagList, setTagList] = React.useState<
     { label: string; value: string }[]
   >([]);
->>>>>>> Initial commit from Create Next App
   const imgBanner = React.useMemo(() => `url(${imgLink})`, [imgLink]);
   const onRemoveTagList = (value: string) => {
     const newTagList = tagList.filter((item) => item.value !== value);
 
-<<<<<<< HEAD
-    tagList = newTagList;
-=======
     setTagList(newTagList);
->>>>>>> Initial commit from Create Next App
   };
 
   const onAddTag = (value: string) => {
@@ -69,12 +43,8 @@ export default function Home() {
     const isContain = tagList.find((item) => item.value === value);
 
     if (!isContain && tag) {
-<<<<<<< HEAD
-      tagList = [...tagList, tag];
-=======
       const newTagList = [...tagList, tag];
       setTagList(newTagList);
->>>>>>> Initial commit from Create Next App
     }
   };
 
@@ -98,16 +68,9 @@ export default function Home() {
     privacy: "Public",
     banner:
       "https://supermomos-app-resourcesus.s3.amazonaws.com/Images/SocialBanner/banner_1.jpg",
-<<<<<<< HEAD
-    tags: ["Product", "Design"],
-=======
     tags: [],
-<<<<<<< HEAD
->>>>>>> Initial commit from Create Next App
-=======
-    date: '',
-    time: '',
->>>>>>> fix: time-machine
+    date: "",
+    time: "",
   };
 
   const onCloseImageBanner = () => {
@@ -117,12 +80,8 @@ export default function Home() {
   const onConfirm = () => {
     setShowModal(false);
   };
-
-<<<<<<< HEAD
-=======
   const router = useRouter();
 
->>>>>>> Initial commit from Create Next App
   return (
     <>
       <Modal
@@ -148,37 +107,20 @@ export default function Home() {
       <Formik
         initialValues={initialValues}
         onSubmit={(event: any) => {
-<<<<<<< HEAD
-          event.preventDefault();
           const { values, actions } = event;
-          console.log();
-=======
-          const { values, actions } = event;
-<<<<<<< HEAD
->>>>>>> Initial commit from Create Next App
-=======
-          const { time, date }= values
-          const timeStamp = new Date(date)
-          const dd = date.getTime()
-          const mm = date.getDay()
-          const yy = date.getYear()
-          const hh = values.time
+          const { time, date } = values;
+          const timeStamp = new Date(date);
+          const dd = date.getTime();
+          const mm = date.getDay();
+          const yy = date.getYear();
+          const hh = values.time;
 
-          const startAt = moment("HH dd/mm/yy",`${hh} ${dd}/${mm}/${yy}`)
+          const startAt = moment("HH dd/mm/yy", `${hh} ${dd}/${mm}/${yy}`);
 
->>>>>>> fix: time-machine
           fetch("https://api.supermomos-dev.com/interview/social", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-<<<<<<< HEAD
-              // 'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: JSON.stringify(values),
-          })
-            .then((res) => res.json())
-            .then((res) => console.log(res));
-=======
             },
             body: JSON.stringify({
               values,
@@ -193,7 +135,6 @@ export default function Home() {
             .catch((err) => {
               console.log(err);
             });
->>>>>>> Initial commit from Create Next App
 
           actions.setSubmitting(false);
         }}
@@ -269,32 +210,42 @@ export default function Home() {
                           className="form-control"
                           id="time"
                           placeholder="Time"
-<<<<<<< HEAD
-<<<<<<< HEAD
                           name="time"
                           data-provide="datepicker"
-                        />
-                      </div>
-=======
-                          name="time-machinnne"
-=======
-                          name="time"
->>>>>>> fix: time-machine
-                          data-provide="datepicker"
-                          list="time"
                         />
                       </div>
                       <datalist id="time">
                         {[
-                           1, 2, 3, 4, 5, 7,6,  8, 9, 10, 12, 0, 1, 2, 3, 4, 5, 6, 7,
-                          8, 9, 10, 11, 12,
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          7,
+                          6,
+                          8,
+                          9,
+                          10,
+                          12,
+                          0,
+                          1,
+                          2,
+                          3,
+                          4,
+                          5,
+                          6,
+                          7,
+                          8,
+                          9,
+                          10,
+                          11,
+                          12,
                         ].map((item, index) => (
                           <option key={item} value={index}>
                             {[item, index > 12 ? "PM" : "AM"].join(":")}
                           </option>
                         ))}
                       </datalist>
->>>>>>> Initial commit from Create Next App
                     </div>
                   </div>
                 </div>
@@ -418,15 +369,11 @@ export default function Home() {
                 <div className={styles.settings}>
                   <p className={styles.settingHeader}>Settings</p>
                   <div className={styles.settingAprove}>
-<<<<<<< HEAD
-                    <input type="checkbox" name="isManualApprove" />
-=======
                     <input
                       type="checkbox"
                       name="isManualApprove"
                       id="isManualApprove"
                     />
->>>>>>> Initial commit from Create Next App
                     <label
                       className={styles.settingInputLabel}
                       htmlFor="isManualApprove"
@@ -438,11 +385,7 @@ export default function Home() {
                     <p>Privacy</p>
                     <div className={styles.grid}>
                       <div className={styles.inputSettingPrivacy}>
-<<<<<<< HEAD
-                        <Field
-=======
                         <input
->>>>>>> Initial commit from Create Next App
                           type={"radio"}
                           id={"privacy-0"}
                           name={"privacy"}
@@ -455,11 +398,7 @@ export default function Home() {
                         </label>
                       </div>
                       <div className={styles.inputSettingPrivacy}>
-<<<<<<< HEAD
-                        <Field
-=======
                         <input
->>>>>>> Initial commit from Create Next App
                           type={"radio"}
                           id={"privacy-1"}
                           name={"privacy"}
@@ -472,11 +411,7 @@ export default function Home() {
                         </label>
                       </div>
                       <div className={styles.inputSettingPrivacy}>
-<<<<<<< HEAD
-                        <Field
-=======
                         <input
->>>>>>> Initial commit from Create Next App
                           type={"radio"}
                           id={"privacy-2"}
                           name={"privacy"}

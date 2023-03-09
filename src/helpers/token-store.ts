@@ -1,4 +1,4 @@
-import { TOKEN_KEY } from '../config/constants'
+import { TOKEN_KEY } from '@/config/const'
 import { getAsString, removeAs, setAsString } from './local-storage'
 
 export const getJwtToken = () => {

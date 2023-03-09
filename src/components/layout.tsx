@@ -1,15 +1,4 @@
 import Header from "./header/Header";
-<<<<<<< HEAD
-
-export default function Layout({ children }: any) {
-    return (
-      <html lang="en">
-        <Header />
-        <main>{children}</main>
-      </html>
-    )
-  }
-=======
 import "@/pages/global.css";
 
 export default function Layout({ children }: any) {
@@ -22,4 +11,3 @@ export default function Layout({ children }: any) {
     </html>
   );
 }
->>>>>>> Initial commit from Create Next App

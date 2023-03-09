@@ -3,14 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import styles from "./page.module.css";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { CreatePageBody } from "@/interface/index";
-=======
->>>>>>> Initial commit from Create Next App
-=======
-import { CreatePageBody } from "../../../interface/index";
->>>>>>> fix: time-machine
 
 interface HeaderItem {
   title: string;
@@ -58,22 +51,12 @@ const initContent: { values: CreatePageBody } = {
 };
 
 let tagList: Tag[] = [{ label: "Engineering", value: "engineering" }];
-<<<<<<< HEAD
-<<<<<<< HEAD
-export default function Home({ params }: { params: Record<string, string> }) {
-  const [content, setContent] = React.useState<{ values: any }>({
-    values: {},
-  });
-=======
-export default function Home() {
->>>>>>> Initial commit from Create Next App
-=======
+
 export default function LandingPageDetail({
   params,
 }: {
   params: { id: string };
 }) {
->>>>>>> fix: time-machine
   const filterTagList: Tag[] = (() => {
     const valueList: string[] = tagList.map((item) => item.value);
     return (
@@ -87,21 +70,22 @@ export default function LandingPageDetail({
   React.useEffect(() => {
     fetch("https://api.supermomos-dev.com/interview/social/" + `${params.id}`)
       .then((res) => res.json())
-      .then((res) =>{
+      .then((res) => {
         if (res) {
           setContent({ values: res });
         }
       })
-      .catch(err => {
-        console.log('Not Found')
-      })
+      .catch((err) => {
+        console.log("Not Found");
+      });
   }, [params]);
 
   fetch(`https://api.supermomos-dev.com/interview/social/${params.id}`)
     .then((res) => res.json())
     .then((res) => {
-      alert(res);
-      setContent({ values: res as CreatePageBody });
+      if (res) {
+        setContent({ values: res as CreatePageBody });
+      }
     })
     .catch((error) => {
       console.log(error);
@@ -110,141 +94,6 @@ export default function LandingPageDetail({
       console.log("done");
     });
 
-  return (
-    <div className={styles.pageContent}>
-      {/* Section Banner  */}
-      <div className={styles.grid}>
-        <div className={styles.col5} style={{ zIndex: 2 }}>
-          <div className={styles.banner}>
-            <span className={styles.formHeader} style={{ marginBottom: 30 }}>
-              {content.values.title}
-            </span>
-          </div>
-          <div className={styles.eventDate}>
-            <div className={styles.grid} style={{ marginBottom: 25 }}>
-              <div
-                className={styles.col6}
-                style={{
-                  display: "flex",
-                  paddingRight: 24,
-                  alignItems: "center",
-                }}
-              >
-                <span className="">
-                  <Image
-                    src={"/images/calendar.svg"}
-                    alt={"calendar"}
-                    width={33}
-                    height={33}
-                    className={styles.dateIcon}
-                  />
-                </span>
-                <div className="div-group" id="datepicker">
-                  <div>{content.values.startAt?.toString()}</div>
-                </div>
-              </div>
-              <div
-                className={styles.col6}
-                style={{
-                  display: "flex",
-                  paddingRight: 24,
-                  alignItems: "center",
-                }}
-              >
-                <span className="">
-                  <Image
-                    src={"/images/clock.svg"}
-                    alt={"calendar"}
-                    width={33}
-                    height={33}
-                    className={styles.dateIcon}
-                  />
-                </span>
-                <div className="div-group date" id="datepicker">
-                  <div>{content.values.startAt?.toString()}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.moreInfo}>
-            <div className={styles.grid}>
-              <div
-                className={styles.col12}
-                style={{
-                  display: "flex",
-                  marginBottom: 10,
-                  paddingRight: 24,
-                  alignItems: "center",
-                }}
-              >
-                <span className="">
-                  <Image
-                    src={"/images/environment.svg"}
-                    alt={"calendar"}
-                    width={33}
-                    height={33}
-                    className={styles.dateIcon}
-                  />
-                </span>
-                <div>{content.values.venue}</div>
-              </div>
-              <div
-                className={styles.col6}
-                style={{
-                  display: "flex",
-                  paddingRight: 10,
-                  alignItems: "center",
-                }}
-              >
-                <span className="">
-                  <Image
-                    src={"/images/group.svg"}
-                    alt={"calendar"}
-                    width={33}
-                    height={33}
-                    className={styles.dateIcon}
-                  />
-                </span>
-                <div>{content.values.capacity}</div>
-              </div>
-              <div
-                className={styles.col6}
-                style={{
-                  display: "flex",
-                  paddingRight: 24,
-                  alignItems: "center",
-                }}
-              >
-                <span className="">
-                  <Image
-                    src={"/images/dollar.svg"}
-                    alt={"calendar"}
-                    width={33}
-                    height={33}
-                    className={styles.dateIcon}
-                  />
-                </span>
-                <div>{content.values.price}</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* Banner */}
-        <div
-          className={styles.col7}
-          style={{ display: "flex", alignItems: "center" }}
-        >
-          <div
-            className={styles.addBanner}
-            style={{ backgroundImage: `url(${content.values.banner})` }}
-          ></div>
-        </div>
-      </div>
-      {/* Section Description*/}
-      <div className={styles.grid} style={{ marginTop: 30 }}>
-        <div className={styles.col6}>{content.values.description}</div>
-      </div>
-    </div>
   const startAtBreaker = React.useMemo(() => {
     const timeMachine = new Date(content.values?.startAt ?? new Date());
     const HH = timeMachine.getHours();
@@ -258,14 +107,13 @@ export default function LandingPageDetail({
     };
   }, [content]);
 
-
   return (
     <>
       {/* PageContent */}
       <div className={styles.pageContent}>
         {/* Section Banner  */}
-        <div className={[styles.grid, styles.infoContainer].join(' ')}>
-          <div className={styles.col5} style={{ zIndex: 2}}>
+        <div className={[styles.grid, styles.infoContainer].join(" ")}>
+          <div className={styles.col5} style={{ zIndex: 2 }}>
             <div className={styles.formHeaderContainer}>
               <span className={styles.formHeader}>{content.values?.title}</span>
             </div>
@@ -378,9 +226,7 @@ export default function LandingPageDetail({
               </div>
             </div>
           </div>
-          <div
-            className={[styles.col7, styles.bannerContainer].join(' ')}
-          >
+          <div className={[styles.col7, styles.bannerContainer].join(" ")}>
             <div
               className={styles.addBanner}
               style={{ backgroundImage: `url(${content.values?.banner})` }}
@@ -393,6 +239,5 @@ export default function LandingPageDetail({
         </div>
       </div>
     </>
->>>>>>> Initial commit from Create Next App
   );
 }
